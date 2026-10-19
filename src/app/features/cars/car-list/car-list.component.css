@@ -1,0 +1,149 @@
+/* ── Contenedor (tarjeta) ────────────────────────────────────── */
+.list-card {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  font-family: system-ui, sans-serif;
+}
+
+/* ── Cabecera ────────────────────────────────────────────────── */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.list-header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+/* ── Botón principal ─────────────────────────────────────────── */
+.btn-primary {
+  padding: 0.55rem 1.1rem;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+/* ── Tabla ───────────────────────────────────────────────────── */
+.vehicle-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.vehicle-table thead tr {
+  background: #f3f4f6;
+}
+
+.vehicle-table th {
+  padding: 0.65rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.vehicle-table td {
+  padding: 0.75rem 1rem;
+  color: #111827;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+.vehicle-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.vehicle-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Miniatura imagen ────────────────────────────────────────── */
+.car-thumb {
+  height: 48px;
+  width: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.no-image {
+  color: #9ca3af;
+}
+
+/* ── Estado vacío ────────────────────────────────────────────── */
+.empty-msg {
+  text-align: center;
+  color: #9ca3af;
+  padding: 2rem 0;
+  font-style: italic;
+}
+
+/* ── Mensajes de estado ──────────────────────────────────────── */
+.loading-msg {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem 0;
+}
+
+.error-msg {
+  font-size: 0.9rem;
+  color: #dc2626;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* ── Paginación ──────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-page {
+  padding: 0.45rem 0.9rem;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-page:hover:not(:disabled) {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.btn-page:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: #6b7280;
+}

@@ -1,0 +1,88 @@
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+
+  <!-- Marca -->
+  <div class="form-grid">
+
+    <!-- Marca -->
+    <div class="form-field">
+      <label>Marca</label>
+      <select formControlName="brandId">
+        <option value="">-- Selecciona marca --</option>
+        @for (brand of brands(); track brand.id) {
+          <option [value]="brand.id">{{ brand.name }}</option>
+        }
+      </select>
+    </div>
+
+  <!-- Modelo (se activa al seleccionar marca) -->
+  <div class="form-field">
+      <label>Modelo</label>
+      <select formControlName="modelId" [disabled]="models().length === 0">
+        <option value="">-- Selecciona modelo --</option>
+        @for (model of models(); track model.id) {
+          <option [value]="model.id">{{ model.name }}</option>
+        }
+      </select>
+    </div>
+
+  <!-- Matrícula -->
+ <div class="form-field">
+      <label>Matrícula (ej: 1234 BBB)</label>
+      <input type="text" formControlName="licensePlate" />
+      @if (carForm.get('licensePlate')?.invalid && carForm.get('licensePlate')?.touched) {
+        <span class="error-msg">Formato inválido. Ejemplo: 1234 BBB</span>
+      }
+    </div>
+
+
+   <!-- Año de fabricación -->
+    <div class="form-field">
+      <label>Año fabricación</label>
+      <input type="number" formControlName="manufactureYear" min="1900" max="2026" />
+    </div>
+
+    <!-- Fecha de matriculación -->
+    <div class="form-field">
+      <label>Fecha de matriculación</label>
+      <input type="date" formControlName="registrationDate" />
+    </div>
+
+    <!-- Kilometraje -->
+    <div class="form-field">
+      <label>Kilometraje</label>
+      <input type="number" formControlName="mileage" min="0" />
+    </div>
+
+    <!-- Precio -->
+    <div class="form-field">
+      <label>Precio (€)</label>
+      <input type="number" formControlName="price" min="1" />
+    </div>
+
+   <!-- Color (opcional) -->
+    <div class="form-field">
+      <label>Color</label>
+      <input type="text" formControlName="color" />
+    </div>
+
+    <!-- Descripción (opcional) -->
+    <div class="form-field full-width">
+      <label>Descripción</label>
+      <textarea formControlName="description"></textarea>
+    </div>
+
+    <!-- Disponible -->
+    <div class="form-field full-width">
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="availability" />
+        Disponible para venta
+      </label>
+    </div>
+
+  </div>
+	@if (errorMsg()) {
+  <p class="error-msg">{{ errorMsg() }}</p>
+}
+  <button type="submit" class="submit-btn" [disabled]="carForm.invalid">Crear vehículo</button>
+
+</form>
